@@ -1,0 +1,14 @@
+<section>
+  <form>
+    <input type="text" placeholder="Filter by city" #filter/>
+    <button class="primary" type="button" (click)="filterResults(filter.value)">Search</button>
+  </form>
+</section>
+
+<section class="results">
+<!-- [attribute] = "value" 语法来通知 Angular 所赋的值应该视为来自组件类的属性（右边的 value ,在这里是 housingLocation），而不是字符串值。  -->
+  <app-housing-location
+    *ngFor="let housingLocation of filteredLocationList"
+    [housingLocation]="housingLocation">
+  </app-housing-location>
+</section>
